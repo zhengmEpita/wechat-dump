@@ -8,6 +8,8 @@ import glob
 import os
 import re
 from PIL import Image
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 import cStringIO
 import base64
 import logging
