@@ -48,9 +48,8 @@ def do_parse_wechat_audio_file(file_name):
     elif 'SILK' in header:
         raw_file = os.path.join('/tmp',
                                 os.path.basename(file_name)[:-4] + '.raw')
-        proc = Popen('{0} {1} {2}'.format(SILK_DECODER,
-                                                file_name, raw_file),
-                    shell=True, stdout=PIPE, stderr=PIPE)
+        proc = Popen([SILK_DECODER, file_name, raw_file],
+                     stdout=PIPE, stderr=PIPE)
         stdout = proc.communicate()[0]
         for line in stdout.split('\n'):
             if 'File length' in line:
